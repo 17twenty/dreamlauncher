@@ -598,7 +598,7 @@ static int __init launcher_init(void)
 {
         int result;
 
-        pr_debug("launcher_disconnect\n");
+        pr_debug("launcher_init\n");
         
         /* Wire up our probe/disconnect */
         launcher_driver.probe = launcher_probe;
@@ -613,6 +613,7 @@ static int __init launcher_init(void)
  
 static void __exit launcher_exit(void)
 {
+        pr_debug("launcher_exit\n");
         /* Deregister this driver with the USB subsystem */
         usb_deregister(&launcher_driver);
 }
