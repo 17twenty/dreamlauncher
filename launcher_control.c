@@ -50,7 +50,7 @@ static void launcher_usage(char *name)
 
 int main(int argc, char **argv)
 {
-        char c;
+        int c;
         int fd;
         int cmd = LAUNCHER_STOP;
         char *dev = LAUNCHER_NODE;
@@ -67,9 +67,11 @@ int main(int argc, char **argv)
                         break;
                 case 'l':
                         cmd = LAUNCHER_LEFT;
+                        printf("Command left\n");
                         break;
                 case 'r':
                         cmd = LAUNCHER_RIGHT;
+                        printf("Command right\n");
                         break;
                 case 'u':
                         cmd = LAUNCHER_UP;
@@ -79,6 +81,7 @@ int main(int argc, char **argv)
                         break;
                 case 'f': 
                         cmd = LAUNCHER_FIRE;
+                        printf("Command fire\n");
                         break;
                 case 's':       
                         cmd = LAUNCHER_STOP;
@@ -88,7 +91,9 @@ int main(int argc, char **argv)
                         fprintf(stdout, "Duration set to %d\n", duration);
                         break;
                 default:
-                        launcher_usage(argv[0]);
+                        printf("default - %c\n", c);
+                        //launcher_usage(argv[0]);
+                        break;
                 }
         }
 
