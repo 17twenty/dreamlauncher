@@ -17,3 +17,4 @@ Guide:
  * `insmod launcher_driver.ko`
  * Make sure that usbhid hasn't stolen your device (see blog!)
  * `sudo ./launcher_control -f`
+ * If you want to have the access permissions set correctly you'll need to use a udev rule. The provided 10-dreamcheeky.rules will set it to 0666 and owned by the wheel group. It will need to be placed in /etc/udev/rules.d/
