@@ -256,6 +256,9 @@ static int launcher_open(struct inode *inodep, struct file *filp)
         ++dev->open_count;
         if (dev->open_count > 1) {
                 pr_info("open_count = %d", dev->open_count);
+                retval = -EBUSY;
+                --dev->open_count;
+                goto unlock_exit;
         }
 
         /* Initialize interrupt URB. */
@@ -405,7 +408,7 @@ static ssize_t launcher_write(struct file *filp, const char __user *user_buf,
                         LAUNCHER_CTRL_INDEX,
                         &buf,
                         sizeof(buf),
-                        HZ*5);        
+                        HZ*100);        
 
 
         if (retval < 0) {

@@ -25,6 +25,7 @@ static void launcher_cmd(int fd, int cmd)
                         " (error %d)\n", retval);
         } else if (LAUNCHER_FIRE == cmd) {
                 usleep(5000000);
+                exit(0);
         }
 }
 
@@ -67,11 +68,9 @@ int main(int argc, char **argv)
                         break;
                 case 'l':
                         cmd = LAUNCHER_LEFT;
-                        printf("Command left\n");
                         break;
                 case 'r':
                         cmd = LAUNCHER_RIGHT;
-                        printf("Command right\n");
                         break;
                 case 'u':
                         cmd = LAUNCHER_UP;
@@ -81,7 +80,6 @@ int main(int argc, char **argv)
                         break;
                 case 'f': 
                         cmd = LAUNCHER_FIRE;
-                        printf("Command fire\n");
                         break;
                 case 's':       
                         cmd = LAUNCHER_STOP;
@@ -91,8 +89,7 @@ int main(int argc, char **argv)
                         fprintf(stdout, "Duration set to %d\n", duration);
                         break;
                 default:
-                        printf("default - %c\n", c);
-                        //launcher_usage(argv[0]);
+                        launcher_usage(argv[0]);
                         break;
                 }
         }
