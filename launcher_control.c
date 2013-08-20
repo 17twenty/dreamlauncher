@@ -61,7 +61,7 @@ int main(int argc, char **argv)
                 launcher_usage(argv[0]);
         }
 
-        while ((c = getopt(argc, argv, "mlrudfsht:")) != -1) {
+        while ((c = getopt(argc, argv, "m:lrudfsht:")) != -1) {
                 switch (c) {
                 case 'm':
                         dev = optarg;
